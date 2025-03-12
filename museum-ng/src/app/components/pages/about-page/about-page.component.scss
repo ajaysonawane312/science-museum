@@ -1,0 +1,32 @@
+.page-title-area {
+    height: 250px;
+    top: 20px;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    padding: {
+        top: 190px;
+        bottom: 180px;
+    };
+    h1{
+        color: aliceblue;
+    }
+    li{
+        color: aliceblue;
+    }
+
+    .bg-image {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -2;
+        position: absolute;
+        background: {
+            position: center center;
+            repeat: no-repeat;
+            size: cover;
+        };
+       
+    }
+}

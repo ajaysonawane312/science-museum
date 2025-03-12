@@ -1,0 +1,135 @@
+@import "../../common/services/services.component.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+
+.page-title-content{
+  height: 100px;
+}
+
+
+*, *::before, *::after {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Grape Nuts', cursive;
+  background-color: #eee;
+  text-align: center;
+  padding: 4em 1em;
+}
+
+.gallery {
+  display: grid;
+  width: 100%;
+  max-width: 1002px;
+  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fit, 300px);
+  grid-template-rows: auto;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+figure {
+  width: 380px;
+  perspective: 900px;
+
+
+  &:nth-child(1) { --imageUrl: url('https://ssbprize.gov.in/WriteReadData/AwardeePhotos/Dr%20S%20C%20Bhattacharyya%20(1962).JPG'); }
+  &:nth-child(2) { --imageUrl: url('https://ssbprize.gov.in/WriteReadData/AwardeePhotos/Dr%20B%20D%20Tilak%20(1963).JPG'); }
+  &:nth-child(3) { --imageUrl: url('https://fellows.ias.ac.in/md-src/avatar/FL1974039.jpg?v=567691801'); }
+  &:nth-child(4) { --imageUrl: url('https://ssbprize.gov.in/WriteReadData/AwardeePhotos/Dr%20A%20P%20B%20Sinha%20(1972).JPG'); }
+  &:nth-child(5) { --imageUrl: url('https://ssbprize.gov.in/WriteReadData/AwardeePhotos/Dr%20H%20B%20Mathur%20(1973).JPG'); }
+  &:nth-child(6) { --imageUrl: url('https://ssbprize.gov.in/WriteReadData/AwardeePhotos/Dr%20R%20A%20Mashelkar%20(1982).JPG'); }
+  &:nth-child(7) { --imageUrl: url('https://twas.org/sites/default/files/styles/fellows_ya_photo/public/cropped_ratnasamy_p_0.jpg?itok=KAAYxLhk'); }
+  &:nth-child(8) { --imageUrl: url('https://ssbprize.gov.in/WriteReadData/AwardeePhotos/201406101241516859439kulkarnibd.jpg'); }
+  &:nth-child(9) { --imageUrl: url('http://sites.iiserpune.ac.in/~kn.ganesh/KNG.jpg'); }
+  &:nth-child(10) { --imageUrl: url('https://ssbprize.gov.in/WriteReadData/AwardeePhotos/201406100100046206482pandeyganeshprasad.jpeg'); }
+  &:nth-child(11) { --imageUrl: url('https://www.iitk.ac.in/dora/imag/profile/pall-a.jpg'); }
+  &:nth-child(12) { --imageUrl: url('https://engit.monash.edu/profiles/wp-content/uploads/2017/11/msastry.jpg'); }
+  &:nth-child(13) { --imageUrl: url('https://dptc.ie/wp-content/uploads/2023/08/Vivek-Ranade-profile.jpg'); }
+  &:nth-child(14) { --imageUrl: url('https://www.vibhaadhiveshan.in/Encyc/2024/5/30/unnamed-(10)_202405301612597857_H@@IGHT_466_W@@IDTH_466.png'); }
+  &:nth-child(15) { --imageUrl: url('http://academic.ncl.res.in/ep_admin/images/profile/gj.sanjayan_186.jpg'); }
+  &:nth-child(16) { --imageUrl: url('https://media.licdn.com/dms/image/v2/C5103AQFLC1oUiM0PRA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516313649409?e=1743033600&v=beta&t=AGeR9vtscAwlQOFHNRWmsIDrutAoWi8ERkI0Y5B8uTU'); }
+  &:nth-child(17) { --imageUrl: url('https://www.aiche.org/sites/default/files/styles/ache_portrait_no-up-scale_nocrop/public/images/bio/amol.jpg?itok=O8-v-mUQ'); }
+
+
+
+  img {
+    width: 100%;
+  }
+}
+
+
+.imageRoll {
+  position: relative;
+  width: 300px; height: 300px;
+  background-color: #fff;
+  box-shadow: 1em 0.5em 2em #1234, 0 0 5em #1234 inset;
+
+  & i {
+    position: absolute;
+    left: calc(100% - 1px);
+    width: 6px; height: 100%;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    transition: transform 0.6s var(--delay, 0s) ease-in-out;
+    background-image:
+      linear-gradient(#0003, #0000 5% 95%, #0003),
+      var(--imageUrl, '');
+    background-position-x: calc(var(--bpx, 0) + 1px);
+    background-size: 300px 300px;
+  }
+
+  & > i {
+    left: 0;
+    width: 5px;
+  }
+
+  &:hover i { 
+    transform: rotateY(var(--angle, 0deg)) skewY(var(--skew, 0deg));
+    transition-delay: var(--delay2, 0s);
+  }
+
+  $count: 60;
+  $bpx: 0;
+  $delay: 0;
+  $angleChange: 0;
+  $skew: 0;
+
+  @for $i from 1 to $count {
+
+    $sel: '&';
+    @for $n from 0 to $i {
+      $sel: $sel + ' > i';
+    }
+
+    #{$sel} {
+      --bpx: #{$bpx}px;
+      --delay: #{$delay}s;
+      --delay2: #{0.6 - $delay}s;
+      --angle: #{-10 - $angleChange}deg;
+      --skew: #{$skew}deg;
+    }
+
+    $bpx: $bpx - 5;
+    $angleChange: $angleChange + 0.1;
+    $delay: $delay + 0.01;
+    $skew: $skew - 0.1;
+  }
+
+  & > figcaption {
+    position: absolute;
+    text-align: left;
+    padding-top: 0em;
+    padding-inline: 100px 25px;
+    z-index: -1;
+    font-size: 25px;
+    width: 100%; height: 100%;
+
+    & strong {
+      display: block;
+    }
+  }
+}

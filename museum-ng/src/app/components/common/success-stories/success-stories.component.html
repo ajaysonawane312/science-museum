@@ -1,0 +1,52 @@
+<div class="stories-area ptb-100 bg-f9f9f9">
+    <div class="container">
+        <div class="section-title">
+            <span class="sub-title">SUCCESS STORIES</span>
+            <h2>CSIR-NCL Success Stories</h2>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-4 col-md-12">
+                <div class="stories-content">
+                    <div class="icon">
+                        <!-- <i class="flaticon-virus"></i> -->
+                        <img src="assets/img/about/ncllogo.png">
+                    </div>
+                    <h3><a routerLink="/services-details">Archives & Science Museum CSIR-National Chemical Laboratory, Pune</a></h3>
+                    <p>The Success Stories of CSIR-National Chemical Laboratory (CSIR-NCL) highlight the laboratory’s remarkable achievements in chemical research, innovation, and technology development. Over the decades, NCL has played a pivotal role in advancing science and contributing to industries such as pharmaceuticals, materials science, catalysis, polymers, and green chemistry.</p>
+                    <a routerLink="/blog-left-sidebar" class="default-btn">Read More</a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-12">
+                <div class="stories-slides">
+                    <owl-carousel-o [options]="storiesSlides">
+
+                        <ng-template carouselSlide>
+                            <div class="stories-item">
+                                <img src="assets/img/stories/cata.jpg" alt="stories-image">
+                            </div>
+                        </ng-template>
+                      
+                        <ng-template carouselSlide>
+                            <div class="stories-item">
+                                <img src="assets/img/stories/albene.jpg" alt="stories-image">
+                            </div>
+                        </ng-template>
+                        <ng-template carouselSlide>
+                            <div class="stories-item">
+                                <img src="assets/img/stories/bamboo.jpg" alt="stories-image">
+                            </div>
+                        </ng-template>
+                        <ng-template carouselSlide>
+                            <div class="stories-item">
+                                <img src="assets/img/stories/homo.jpg" alt="stories-image">
+                            </div>
+                        </ng-template>
+                        
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
